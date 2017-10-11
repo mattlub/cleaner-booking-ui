@@ -15,6 +15,7 @@ class App extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleSlotClick = this.handleSlotClick.bind(this)
   }
 
   getAvailability () {
@@ -45,6 +46,12 @@ class App extends Component {
         availabilityData: data
       }))
   }
+
+  handleSlotClick (day, slot) {
+      console.log('firing')
+      console.log(day, slot)
+  }
+  
 
   render () {
     return (
@@ -77,6 +84,7 @@ class App extends Component {
           { this.state.availabilityData && !this.state.isLoadingData &&
             <Calendar
               availabilityData={ this.state.availabilityData }
+              handleSlotClick={ this.handleSlotClick }
             />
           }
 

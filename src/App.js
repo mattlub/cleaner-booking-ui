@@ -12,7 +12,8 @@ class App extends Component {
       selectedPeriod: 2,
       isLoadingData: false,
       hasErrored: false,
-      availabilityData: null
+      availabilityData: null,
+      selectedSlot: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -21,6 +22,8 @@ class App extends Component {
 
   getAvailability () {
     this.setState({
+      selectedSlot: null,
+      hasErrored: false,
       isLoadingData: true
     })
     const queries = {
@@ -52,9 +55,14 @@ class App extends Component {
       }))
   }
 
-  handleSlotClick (day, slot) {
-      console.log('firing')
-      console.log(day, slot)
+  handleSlotClick (slot, day) {
+    if (!slot.possible) {
+      // maybe set message saying you can't select it
+      return
+    }
+    this.setState({
+      selectedSlot: { slot, day }
+    })
   }
   
 
@@ -86,8 +94,21 @@ class App extends Component {
             <span>Loading Results...</span>
           }
 
+          { this.state.availabilityData && !this.state.selectedSlot &&
+            <span>Please select an available start period.</span>
+          }
+
           { this.state.hasErrored &&
             <span>Error loading results, please try again.</span>
+          }
+
+          { this.state.selectedSlot && 
+            <form>
+              <p>You have selected a start time of { this.state.selectedSlot.slot.start } on { this.state.selectedSlot.day }</p>
+              <button type="submit">
+                Book Slot!
+              </button>
+            </form>
           }
 
           { this.state.availabilityData && !this.state.isLoadingData &&

@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       selectedPeriod: 2,
       isLoadingData: false,
+      hasErrored: false,
       availabilityData: null
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -44,6 +45,10 @@ class App extends Component {
       .then(data => this.setState({
         isLoadingData: false,
         availabilityData: data
+      }))
+      .catch(err => this.setState({
+        isLoadingData: false,
+        hasErrored: true
       }))
   }
 
@@ -79,6 +84,10 @@ class App extends Component {
 
           { this.state.isLoadingData &&
             <span>Loading Results...</span>
+          }
+
+          { this.state.hasErrored &&
+            <span>Error loading results, please try again.</span>
           }
 
           { this.state.availabilityData && !this.state.isLoadingData &&

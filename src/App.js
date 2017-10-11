@@ -3,7 +3,22 @@ import './App.css'
 import TimeInput from './components/TimeInput'
 
 class App extends Component {
-  render() {
+  constructor () {
+    super()
+    this.state = {
+      selectedPeriod: 2
+    }
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange (e) {
+    console.log(e.target.value)
+    this.setState({
+      selectedPeriod: e.target.value
+    })
+  }
+
+  render () {
     return (
 
       <div className="App">
@@ -16,7 +31,10 @@ class App extends Component {
           Book a cleaner.
         </h2>
 
-        <TimeInput />
+        <TimeInput
+          value={ this.state.selectedPeriod }
+          handleInputChange={ this.handleInputChange }
+        />
 
       </div>
     )

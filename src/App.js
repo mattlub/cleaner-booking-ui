@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import TimeInput from './components/TimeInput'
 
 class App extends Component {
   render() {
@@ -14,6 +15,8 @@ class App extends Component {
         <h2>
           Book a cleaner.
         </h2>
+
+        <TimeInput />
 
       </div>
     )

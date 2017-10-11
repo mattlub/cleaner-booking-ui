@@ -12,8 +12,11 @@ npm start
 ### My method
 - simple wireframes
 - use create-react-app
-- create input field
-- create get request
+- create input field component
+- implement get request
+- create calendar component
+- some simple css
+- create slotTime component
 
 ## Specification
 

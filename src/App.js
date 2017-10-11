@@ -49,36 +49,38 @@ class App extends Component {
   render () {
     return (
 
-      <div className="App">
+      <div className="app">
 
-        <header className="App-header">
-          <h1 className="App-title">Housekeep</h1>
+        <header className="app-header">
+          <h1 className="app-title">Housekeep</h1>
         </header>
+        <section className="content">
 
-        <h2>
-          Book a cleaner.
-        </h2>
+          <h2>
+            Book a cleaner.
+          </h2>
 
-        <form onSubmit={ this.handleFormSubmit } >
-          <TimeInput
-            value={ this.state.selectedPeriod }
-            handleInputChange={ this.handleInputChange }
-          />
-          <button type="submit">
-            Find a cleaner!
-          </button>
-        </form>
+          <form onSubmit={ this.handleFormSubmit } >
+            <TimeInput
+              value={ this.state.selectedPeriod }
+              handleInputChange={ this.handleInputChange }
+            />
+            <button className="submit-button" type="submit">
+              Find a cleaner!
+            </button>
+          </form>
 
-        { this.state.isLoadingData &&
-          <span>Loading Results...</span>
-        }
+          { this.state.isLoadingData &&
+            <span>Loading Results...</span>
+          }
 
-        { this.state.availabilityData && !this.state.isLoadingData &&
-          <Calendar
-            availabilityData={ this.state.availabilityData }
-          />
-        }
+          { this.state.availabilityData && !this.state.isLoadingData &&
+            <Calendar
+              availabilityData={ this.state.availabilityData }
+            />
+          }
 
+        </section>
       </div>
     )
   }

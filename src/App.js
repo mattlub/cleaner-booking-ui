@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import qs from 'querystring'
 import TimeInput from './components/TimeInput'
+import Calendar from './components/Calendar'
 import './App.css'
 import { availabilityUrl } from './constants'
 
@@ -70,6 +71,12 @@ class App extends Component {
 
         { this.state.isLoadingData &&
           <span>Loading Results...</span>
+        }
+
+        { this.state.availabilityData && !this.state.isLoadingData &&
+          <Calendar
+            availabilityData={ this.state.availabilityData }
+          />
         }
 
       </div>

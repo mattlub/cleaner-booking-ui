@@ -12,7 +12,8 @@ npm start
 ### My method
 - simple wireframes
 - use create-react-app
-
+- create input field
+- create get request
 
 ## Specification
 

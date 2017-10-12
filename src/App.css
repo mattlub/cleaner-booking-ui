@@ -1,21 +1,19 @@
+body {
+	background: #f4faff;
+}
+
 .app {
 	font-family: sans-serif;
 }
-
-.app-header {
-
-}
-
-.app-title {
-
-}
-
-
 
 .content {
 	width: 100%;
 	max-width: 760px;
 	margin: auto;
+}
+
+.status-message {
+	margin: 1em 0em;
 }
 
 /* form */
@@ -50,10 +48,10 @@ form {
 .calendar {
 	width: 100%;
 	display: flex;
+	justify-content: space-between;
 }
 
 .calendar-day {
-	margin: 0em 0.4em;
 	border: 0px solid grey;
 	display: inline-block;
 }
@@ -70,5 +68,5 @@ form {
 
 .possible {
     color: black;
-    background: rgb(207, 249, 206);
+    background: rgba(130, 255, 105, 0.48);
 }

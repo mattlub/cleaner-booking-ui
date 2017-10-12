@@ -23,9 +23,10 @@ class App extends Component {
 
   getAvailability () {
     this.setState({
-      selectedSlot: null,
+      isLoadingData: true,
       hasErrored: false,
-      isLoadingData: true
+      availabilityData: null,
+      selectedSlot: null
     })
     const queries = {
       weekBeginning: '2016-12-05',
@@ -89,15 +90,15 @@ class App extends Component {
           </form>
 
           { this.state.isLoadingData &&
-            <span>Loading Results...</span>
+            <div className="status-message">Loading Results...</div>
           }
 
           { this.state.availabilityData && !this.state.selectedSlot &&
-            <span>Please select an available start period.</span>
+            <div className="status-message">Please select an available start period.</div>
           }
 
           { this.state.hasErrored &&
-            <span>Error loading results, please try again.</span>
+            <div className="status-message">Error loading results, please try again.</div>
           }
 
           { this.state.selectedSlot && 

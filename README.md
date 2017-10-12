@@ -17,6 +17,8 @@ npm start
 - create calendar component
 - some simple css
 - create slotTime component
+- style calendar
+- handle slot selection
 
 ## Specification
 

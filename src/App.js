@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import qs from 'querystring'
 import TimeInput from './components/TimeInput'
 import Calendar from './components/Calendar'
+import BookingForm from './components/BookingForm'
 import './App.css'
 import { availabilityUrl } from './constants'
 
@@ -100,12 +101,9 @@ class App extends Component {
           }
 
           { this.state.selectedSlot && 
-            <form>
-              <p>You have selected a start time of { this.state.selectedSlot.slot.start } on { this.state.selectedSlot.day }</p>
-              <button type="submit">
-                Book Slot!
-              </button>
-            </form>
+            <BookingForm
+              selectedSlot={ this.state.selectedSlot }
+            />
           }
 
           { this.state.availabilityData && !this.state.isLoadingData &&

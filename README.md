@@ -11,7 +11,7 @@ npm start
 
 ### My method
 - simple wireframes
-- use create-react-app
+- initial setup using create-react-app
 - create input field component
 - implement get request
 - create calendar component
@@ -19,6 +19,12 @@ npm start
 - create slotTime component
 - style calendar
 - handle slot selection
+
+### TODO next
+- implement highlighting of the selected slot
+- keep track of the searched period (and include it in the booking form message)
+- implement the click for the booking
+- success page
 
 ## Specification
 
